@@ -154,7 +154,7 @@ We've succesfully (and securely) moved our public key to the HPC, now let's add 
 Once this is done, logout of the HPC.  Then in your computer's Terminal enter the following command:
 
 ~~~
-ssh jcXXYYYY@zodiac.hpc.jcu.edu.au -i ~/.ssh/HPC
+ssh jcXXYYYY@awoonga.qriscloud.org.au -i ~/.ssh/HPC
 ~~~
 {: .bash}
 
@@ -164,7 +164,7 @@ For an even smoother connecting experience, open a text editor, create a blank f
 
 ~~~
 Host hpc
-	HostName zodiac.hpc.jcu.edu.au
+	HostName awoonga.qriscloud.org.au
 	User jcXXYYYY
 	Port 8822
 	IdentityFile ~/.ssh/HPC
