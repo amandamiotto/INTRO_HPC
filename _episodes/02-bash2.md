@@ -202,7 +202,7 @@ information on how to use the commands or programs.
 > to refer to the input term(s) given to a command.
 > Consider the example below:
 > ```
-> [remote]$ ls -lh /plots
+> [remote]$ ls -lh .
 > ```
 > {: .bash}
 > `ls` is the command, `-lh` are the flags (also called options),
@@ -222,9 +222,15 @@ information on how to use the commands or programs.
 {: .callout}
 
 
-### Lets get our data files in
+## Lets get our data files in
 
 To download our data files onto the HPC today, we are going to use two commands
+
+### Grabbing files from the internet
+
+To download files from the internet, 
+the absolute best tool is `wget`.
+The syntax is relatively straightforwards: `wget https://some/link/to/a/file.tar.gz`
 
 ~~~
 [remote]$ wget https://github.com/amandamiotto/INTRO_HPC/raw/gh-pages/files/hpcCarpentry.zip
@@ -260,6 +266,38 @@ Archive:  hpcCarpentry.zip
 ~~~
 {: .bash}
 
+
+> ## Working with compressed files, using unzip and gunzip
+> 
+> The file we just downloaded is unzipped (has the `.zip` 
+> extension).
+>You can uncompress it with `unzip filename.zip`.
+>
+>File decompression reference:
+>
+>* **.tar.gz** - `tar -xzvf archive-name.tar.gz`
+>* **.tar.bz2** - `tar -xjvf archive-name.tar.bz2`
+>* **.zip** - `unzip archive-name.zip`
+>* **.rar** - `unrar archive-name.rar`
+>* **.7z** - `7z x archive-name.7z`
+>
+>However, sometimes we will want to compress files 
+>ourselves to make file transfers easier.
+>The larger the file, the longer it will take to 
+>transfer. 
+>Moreover, we can compress a whole bunch of little 
+>files into one big file to make it easier
+>on us (no one likes transferring 70000) little files!
+>
+>The two compression commands we'll probably want to 
+>remember are the following:
+>
+>* Compress a single file with Gzip - `gzip filename`
+>* Compress a lot of files/folders with Gzip - `tar -czvf archive-name.tar.gz folder1 file2 folder3 etc`
+> 
+{: .callout}
+
+
 Now we have some files to explore
 
 > ## Orthogonality
@@ -293,7 +331,7 @@ How can you check what happened?  `pwd` gives us the answer!
 {: .bash}
 
 ~~~
-/home/johnsmtih
+/home/johnsmith
 ~~~
 {: .output}
 
@@ -305,7 +343,7 @@ three commands, but we can actually string together the list of directories
 to move to `data` in one step:
 
 ~~~
-[remote]$ cd Desktop/data-shell/data
+[remote]$ cd hpcCarpentry
 ~~~
 {: .bash}
 
@@ -337,12 +375,12 @@ to move to `data-shell`.
 {: .bash}
 
 ~~~
-/Users/nelle/Desktop/data-shell/data
+/home/johnsmith/hpcCarpentry
 ~~~
 {: .output}
 
 ~~~
-[remote]$ cd /Users/nelle/Desktop/data-shell
+[remote]$ cd /home/johnsmith/hpcCarpentry/data
 ~~~
 {: .bash}
 
@@ -366,7 +404,7 @@ a directory called `revised-revised-results-3`.)
 
 > ## Absolute vs Relative Paths
 >
-> Starting from `/Users/amanda/data/`,
+> Starting from `/home/amanda/data/`,
 > which of the following commands could Amanda use to navigate to her home directory,
 > which is `/Users/amanda`?
 >
@@ -393,26 +431,6 @@ a directory called `revised-revised-results-3`.)
 > {: .solution}
 {: .challenge}
 
-> ## Relative Path Resolution
->
-> Using the filesystem diagram below, if `pwd` displays `/Users/thing`,
-> what will `ls -F ../backup` display?
->
-> 1.  `../backup: No such file or directory`
-> 2.  `2012-12-01 2013-01-08 2013-01-27`
-> 3.  `2012-12-01/ 2013-01-08/ 2013-01-27/`
-> 4.  `original/ pnas_final/ pnas_sub/`
->
-> ![File System for Challenge Questions](../fig/filesystem-challenge.svg)
->
-> > ## Solution
-> > 1. No: there *is* a directory `backup` in `/Users`.
-> > 2. No: this is the content of `Users/thing/backup`,
-> >    but with `..` we asked for one level further up.
-> > 3. No: see previous explanation.
-> > 4. Yes: `../backup/` refers to `/Users/backup/`.
-> {: .solution}
-{: .challenge}
 
 > ## `ls` Reading Comprehension
 >
@@ -505,24 +523,6 @@ fileToMove
 ~~~
 {: .output}
 
-
-
-## Grabbing files from the internet
-
-To download files from the internet, 
-the absolute best tool is `wget`.
-The syntax is relatively straightforwards: `wget https://some/link/to/a/file.tar.gz`
-
-> ## Downloading the Drosophila genome
-> The *Drosophila melanogaster* reference genome is located at the following website:
-> [http://metazoa.ensembl.org/Drosophila_melanogaster/Info/Index](http://metazoa.ensembl.org/Drosophila_melanogaster/Info/Index).
-> Download it to the cluster with `wget`.
->
-> Some additional details:
->
-> * You want to go get the genome through the "Download DNA Sequence" link
-> * We are interested in the `Drosophila_melanogaster.BDGP6.dna.toplevel.fa.gz` file.
-{: .challenge}
 
 > ## Working with compressed files, using unzip and gunzip
 > 
