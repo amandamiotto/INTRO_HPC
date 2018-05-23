@@ -50,7 +50,7 @@ ssh jcXXYYYY@awoonga.qriscloud.org.au -p 8822
 If you've never connected to this particular server before you'll encounter a message similar to this:
 
 ~~~
-The authenticity of host 'zodiac.hpc.jcu.edu.au (137.219.23.90)' can't be established.
+The authenticity of host 'awoonga.qriscloud.org.au (137.219.23.90)' can't be established.
 RSA key fingerprint is 2a:b6:f6:8d:9d:c2:f8:2b:8c:c5:03:06:a0:f8:59:12.
 Are you sure you want to continue connecting (yes/no)?
 ~~~
@@ -59,14 +59,14 @@ Are you sure you want to continue connecting (yes/no)?
 This is your computer warning you that you're about to connect to another computer, type \"yes\" to proceed.  This will add the HPC to your \"known hosts\", and you shouldn't see the message again the future.
 
 ~~~
-Warning: Permanently added 'zodiac.hpc.jcu.edu.au,137.219.23.90' (RSA) to the list of known hosts.
+Warning: Permanently added 'awoonga.qriscloud.org.au,137.219.23.90' (RSA) to the list of known hosts.
 ~~~~
 {: .bash}
 
 You should now be prompted to input the password which corresponds to your JC number.  Type it in carefully (no characters will appear on the screen), then press ENTER.
 
 ~~~
-jcXXYYYY@zodiac.hpc.jcu.edu.au's password: 
+jcXXYYYY@awoonga.qriscloud.org.au's password: 
 ~~~
 {: .bash}
 
