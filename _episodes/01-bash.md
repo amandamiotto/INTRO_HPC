@@ -35,7 +35,7 @@ Additional parameters may also be necessary:
 <span style="color:white">blankline</span>
    
 > ## What's my User Name?
-> Your user name is your firstnamelastname.  Wherever you see \"firstnamelastname\", be sure to replace it with your username.
+> Your user name is your JC number.  Wherever you see \"jcXXYYYY\", be sure to replace it with your JC number.
 {: .callout}
 
 ## Basic SSH Connection
@@ -43,14 +43,14 @@ Additional parameters may also be necessary:
 Open your terminal, and input the following command.
 
 ~~~
-ssh firstnamelastname@awoonga.qriscloud.org.au -p 8822
+ssh jcXXYYYY@zodiac.hpc.jcu.edu.au -p 8822
 ~~~
 {: .bash}
 
 If you've never connected to this particular server before you'll encounter a message similar to this:
 
 ~~~
-The authenticity of host 'awoonga.qriscloud.org.au (IP)' can't be established.
+The authenticity of host 'zodiac.hpc.jcu.edu.au (137.219.23.90)' can't be established.
 RSA key fingerprint is 2a:b6:f6:8d:9d:c2:f8:2b:8c:c5:03:06:a0:f8:59:12.
 Are you sure you want to continue connecting (yes/no)?
 ~~~
@@ -59,14 +59,14 @@ Are you sure you want to continue connecting (yes/no)?
 This is your computer warning you that you're about to connect to another computer, type \"yes\" to proceed.  This will add the HPC to your \"known hosts\", and you shouldn't see the message again the future.
 
 ~~~
-Warning: Permanently added 'awoonga.qriscloud.org.au,137.219.23.90' (RSA) to the list of known hosts.
+Warning: Permanently added 'zodiac.hpc.jcu.edu.au,137.219.23.90' (RSA) to the list of known hosts.
 ~~~~
 {: .bash}
 
-You should now be prompted to input the password which corresponds to your account.  Type it in carefully (no characters will appear on the screen), then press ENTER.
+You should now be prompted to input the password which corresponds to your JC number.  Type it in carefully (no characters will appear on the screen), then press ENTER.
 
 ~~~
-firstnamelastname@awoonga.qriscloud.org.au's password: 
+jcXXYYYY@zodiac.hpc.jcu.edu.au's password: 
 ~~~
 {: .bash}
 
@@ -124,7 +124,7 @@ Enter same passphrase again:
 Your identification has been saved in HPC.
 Your public key has been saved in HPC.pub.
 The key fingerprint is:
-SHA256:ZEhLX2vWQukEMaxFJCG+tygeBewru3vRnTZo5f3iN+4 
+SHA256:ZEhLX2vWQukEMaxFJCG+tygeBewru3vRnTZo5f3iN+4 jc152199@C02SY00TGTDX
 The key's randomart image is:
 +---[RSA 1024]----+
 |    . ==*oo.     |
@@ -154,7 +154,7 @@ We've succesfully (and securely) moved our public key to the HPC, now let's add 
 Once this is done, logout of the HPC.  Then in your computer's Terminal enter the following command:
 
 ~~~
-ssh firstnamelastname@awoonga.qriscloud.org.au -i ~/.ssh/HPC
+ssh jcXXYYYY@zodiac.hpc.jcu.edu.au -i ~/.ssh/HPC
 ~~~
 {: .bash}
 
@@ -164,8 +164,8 @@ For an even smoother connecting experience, open a text editor, create a blank f
 
 ~~~
 Host hpc
-	HostName awoonga.qriscloud.org.au
-	User firstnamelastname
+	HostName zodiac.hpc.jcu.edu.au
+	User jcXXYYYY
 	Port 8822
 	IdentityFile ~/.ssh/HPC
 ~~~
@@ -176,7 +176,6 @@ Now you can connect to the HPC by simply opening your Terminal and typing the co
 ssh hpc
 ~~~
 {: .bash}
-
 
 
 
