@@ -43,7 +43,7 @@ Additional parameters may also be necessary:
 Open your terminal, and input the following command.
 
 ~~~
-ssh jcXXYYYY@zodiac.hpc.jcu.edu.au -p 8822
+ssh jcXXYYYY@awoonga.qriscloud.org.au -p 8822
 ~~~
 {: .bash}
 
