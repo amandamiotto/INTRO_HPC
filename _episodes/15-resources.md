@@ -36,6 +36,9 @@ and then ask the scheduler how many resources it used.
 A good rule of thumb is to ask the scheduler for more time and memory than your job can use.
 This value is typically two to three times what you think your job will need.
 
+Note: module bowtie2/2.2.7 is available
+
+
 > ## Benchmarking `bowtie2-build`
 > Create a job that runs the following command 
 > in the same directory as our *Drosophila* reference genome
