@@ -100,7 +100,7 @@ which python3
 ```
 {: .bash}
 ```
-/cvmfs/soft.computecanada.ca/nix/var/nix/profiles/python-3.5.2/bin/python3
+/opt/python/bin/python3
 ```
 {: .output}
 
@@ -118,14 +118,14 @@ echo $PATH
 ```
 {: .bash}
 ```
-/cvmfs/soft.computecanada.ca/nix/var/nix/profiles/python-3.5.2/bin:/opt/software/slurm/16.05.9/bin:/cvmfs/soft.computecanada.ca/easybuild/software/2017/avx2/Compiler/intel2016.4/openmpi/2.1.1/bin:/cvmfs/soft.computecanada.ca/easybuild/software/2017/Core/imkl/11.3.4.258/mkl/bin:/cvmfs/soft.computecanada.ca/easybuild/software/2017/Core/imkl/11.3.4.258/bin:/cvmfs/soft.computecanada.ca/easybuild/software/2017/Core/ifort/2016.4.258/compilers_and_libraries_2016.4.258/linux/bin/intel64:/cvmfs/soft.computecanada.ca/nix/var/nix/profiles/gcc-5.4.0/bin:/cvmfs/soft.computecanada.ca/easybuild/software/2017/Core/icc/2016.4.258/compilers_and_libraries_2016.4.258/linux/bin/intel64:/opt/software/bin:/opt/puppetlabs/puppet/bin:/opt/software/slurm/current/bin:/opt/software/slurm/bin:/cvmfs/soft.computecanada.ca/easybuild/bin:/cvmfs/soft.computecanada.ca/nix/var/nix/profiles/16.09/bin:/cvmfs/soft.computecanada.ca/nix/var/nix/profiles/16.09/sbin:/cvmfs/soft.computecanada.ca/custom/bin:/opt/software/slurm/current/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/yourUsername/.local/bin:/home/yourUsername/bin
+/opt/intel/composer_xe_2017.4/bin/intel64:/opt/intel/composer_xe_2017.4/mpirt/bin/intel64:/opt/intel/composer_xe_2017.4/debugger/gdb/intel64_mic/bin:/opt/gnu/gcc/bin:/opt/python/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/sdsc/bin:/opt/sdsc/sbin:/opt/bio/ncbi/bin:/opt/bio/mpiblast/bin:/opt/bio/EMBOSS/bin:/opt/bio/clustalw/bin:/opt/bio/tcoffee/bin:/opt/bio/hmmer/bin:/opt/bio/phylip/exe:/opt/bio/mrbayes:/opt/bio/fasta:/opt/bio/glimmer/bin:/opt/bio/glimmer/scripts:/opt/bio/gromacs/bin:/opt/bio/gmap/bin:/opt/bio/tigr/bin:/opt/bio/autodocksuite/bin:/opt/bio/wgs/bin:/opt/ganglia/bin:/opt/ganglia/sbin:/usr/java/latest/bin:/opt/maui/bin:/opt/torque/bin:/opt/torque/sbin:/opt/pbs/bin:/opt/rocks/bin:/opt/rocks/sbin:/home/username/bin
 ```
 {: .output}
 
 You'll notice a similarity to the output of the `which` command. 
 In this case, there's only one difference:
-the `/cvmfs/soft.computecanada.ca/nix/var/nix/profiles/python-3.5.2/bin` directory at the beginning.
-When we ran `module load python/3.5.2`, 
+the `/opt/python/bin` directory at the beginning.
+When we ran `module load python`, 
 it added this directory to the beginning of our `$PATH`.
 Let's examine what's there:
 
@@ -134,10 +134,15 @@ ls /cvmfs/soft.computecanada.ca/nix/var/nix/profiles/python-3.5.2/bin
 ```
 {: .bash}
 ```
-2to3		  idle3    pip3.5    python3	       python3.5m-config  virtualenv
-2to3-3.5	  idle3.5  pydoc3    python3.5	       python3-config	  wheel
-easy_install	  pip	   pydoc3.5  python3.5-config  pyvenv
-easy_install-3.5  pip3	   python    python3.5m        pyvenv-3.5
+2to3           easy_install      nosetests      pip3       python2.7-config   python-config
+2to3-3.5       easy_install-2.7  nosetests-2.7  pip3.5     python2-config     pyvenv-3.5
+cygd-3.5       easy_install-3.5  nosetests-3.5  pydoc      python3            smtpd.py
+cygdb          f2py2.7           pbr            pydoc3     python3.5
+cython         f2py3.5           pbr-3.5        pydoc3.5   python3.5-config
+cython-3.5     idle              pip            python     python3.5m
+cythonize      idle3             pip2           python2    python3.5m-config
+cythonize-3.5  idle3.5           pip2.7         python2.7  python3-config
+
 ```
 {: .output}
 
@@ -172,24 +177,16 @@ module list
 ```
 {: .bash}
 ```
-Currently Loaded Modules:
-  1) nixpkgs/.16.09    (H,S)   5) intel/2016.4  (t)   9) java/1.8.0_121   (t)
-  2) icc/.2016.4.258   (H)     6) openmpi/2.1.1 (m)  10) beagle-lib/2.1.2 (bio)
-  3) gcccore/.5.4.0    (H)     7) StdEnv/2016.4 (S)  11) beast/2.4.0      (chem)
-  4) ifort/.2016.4.258 (H)     8) python/3.5.2  (t)
+Currently Loaded Modulefiles:
+  1) gnu/7.1.0       3) mkl/2017.3      5) R/3.4.0
+  2) intel/2017.4    4) python/2.7.13
 
-  Where:
-   S:     Module is Sticky, requires --force to unload or purge
-   bio:   Bioinformatic libraries/apps / Logiciels de bioinformatique
-   m:     MPI implementations / Implémentations MPI
-   t:     Tools for development / Outils de développement
-   chem:  Chemistry libraries/apps / Logiciels de chimie
-   H:                Hidden Module
+
 ```
 {: .output}
 
-So in this case, loading the `beast` module (a bioinformatics software package),
-also loaded `java/1.8.0_121` and `beagle-lib/2.1.2` as well.
+So in this case, loading the `R` module (a bioinformatics software package),
+also loaded `intel/2017.4` as well as others.
 Let's try unloading the `beast` package.
 
 ```
@@ -198,15 +195,9 @@ module list
 ```
 {: .bash}
 ```
-Currently Loaded Modules:
-  1) nixpkgs/.16.09  (H,S)   3) gcccore/.5.4.0    (H)   5) intel/2016.4  (t)   7) StdEnv/2016.4 (S)
-  2) icc/.2016.4.258 (H)     4) ifort/.2016.4.258 (H)   6) openmpi/2.1.1 (m)   8) python/3.5.2  (t)
+Currently Loaded Modulefiles:
+  1) gnu/7.1.0       2) python/2.7.13
 
-  Where:
-   S:  Module is Sticky, requires --force to unload or purge
-   m:  MPI implementations / Implémentations MPI
-   t:  Tools for development / Outils de développement
-   H:             Hidden Module
 ```
 {: .output}
 
@@ -218,11 +209,7 @@ module purge
 ```
 {: .bash}
 ```
-The following modules were not unloaded:
-  (Use "module --force purge" to unload all):
-
-  1) StdEnv/2016.4    3) icc/.2016.4.258   5) ifort/.2016.4.258   7) imkl/11.3.4.258
-  2) nixpkgs/.16.09   4) gcccore/.5.4.0    6) intel/2016.4        8) openmpi/2.1.1
+No Modulefiles Currently Loaded.
 ```
 {: .output}
 
