@@ -130,7 +130,8 @@ it added this directory to the beginning of our `$PATH`.
 Let's examine what's there:
 
 ```
-ls /cvmfs/soft.computecanada.ca/nix/var/nix/profiles/python-3.5.2/bin
+ls /opt/python/bin
+
 ```
 {: .bash}
 ```
@@ -186,7 +187,7 @@ Currently Loaded Modulefiles:
 {: .output}
 
 So in this case, loading the `R` module (a bioinformatics software package),
-also loaded `intel/2017.4` as well as others.
+also loaded `intel/2017.3` as well as others.
 Let's try unloading the `beast` package.
 
 ```
@@ -254,81 +255,35 @@ Let's take a closer look at the `gcc` module.
 GCC is an extremely widely used C/C++/Fortran compiler.
 Tons of software is dependent on the GCC version, 
 and might not compile or run if the wrong version is loaded.
-In this case, there are two different versions: `gcc/4.8.5` and `gcc/5.4.0`.
-How do we load each copy and which copy is the default?
+In this case, there is GCC/4.9.2
+In Awoonga, if it is a default module, it will have (default) marked next to it
 
-In this case, `gcc/5.4.0` has a `(D)` next to it.
-This indicates that it is the default - 
-if we type `module load gcc`, this is the copy that will be loaded.
+if we type `module load GCC/4.9.2`, this is the copy that will be loaded.
 
 ```
-module load gcc
+module load GCC/4.9.2
 gcc --version
 ```
 {: .bash}
+
+Lmod is automatically replacing "intel/2016.3" with "GCC/4.9.2".
+
 ```
-Lmod is automatically replacing "intel/2016.4" with "gcc/5.4.0".
 
-
-Due to MODULEPATH changes, the following have been reloaded:
-  1) openmpi/2.1.1
-
-gcc (GCC) 5.4.0
-Copyright (C) 2015 Free Software Foundation, Inc.
+gcc (GCC) 4.9.2
+Copyright (C) 2014 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
 ```
 {: .output}
 
 Note that three things happened:
-the default copy of GCC was loaded (version 5.4.0), 
+the default copy of GCC was loaded (version 4.9.2), 
 the Intel compilers (which conflict with GCC) were unloaded,
 and software that is dependent on compiler (OpenMPI) was reloaded.
 The `module` system turned what might be a super-complex operation into a single command.
 
-So how do we load the non-default copy of a software package?
-In this case, the only change we need to make is be more specific about the module we are loading.
-There are two GCC modules: `gcc/5.4.0` and `gcc/4.8.5`.
-To load a non-default module, the only change we need to make to our `module load` command
-is to leave in the version number after the `/`.
-
-```
-module load gcc/4.8.5
-gcc --version
-```
-{: .bash}
-```
-Inactive Modules:
-  1) openmpi
-
-The following have been reloaded with a version change:
-  1) gcc/5.4.0 => gcc/4.8.5
-
-gcc (GCC) 4.8.5
-Copyright (C) 2015 Free Software Foundation, Inc.
-This is free software; see the source for copying conditions.  There is NO
-warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-```
-{: .output}
-
-We now have successfully switched from GCC 5.4.0 to GCC 4.8.5.
-It is also important to note that there was no compatible OpenMPI module available for GCC 4.8.5.
-Because of this, the `module` program has "inactivated" the module.
-All this means for us is that if we re-load GCC 5.4.0, 
-`module` will remember OpenMPI used to be loaded and load that module as well.
-
-```
-module load gcc/5.4.0
-```
-{: .bash}
-```
-Activating Modules:
-  1) openmpi/2.1.1
-
-The following have been reloaded with a version change:
-  1) gcc/4.8.5 => gcc/5.4.0
-```
-{: .output}
 
 > ## Using software modules in scripts
 >
