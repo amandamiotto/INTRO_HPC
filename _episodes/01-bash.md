@@ -50,7 +50,7 @@ ssh firstnamelastname@awoonga.qriscloud.org.au -p 8822
 If you've never connected to this particular server before you'll encounter a message similar to this:
 
 ~~~
-The authenticity of host 'awoonga.qriscloud.org.au (137.219.23.90)' can't be established.
+The authenticity of host 'awoonga.qriscloud.org.au (IP)' can't be established.
 RSA key fingerprint is 2a:b6:f6:8d:9d:c2:f8:2b:8c:c5:03:06:a0:f8:59:12.
 Are you sure you want to continue connecting (yes/no)?
 ~~~
