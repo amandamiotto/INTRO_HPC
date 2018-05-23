@@ -49,12 +49,12 @@ i.e.,
 it shows us who the shell thinks we are:
 
 ~~~
-$ cd
+$ whoami
 ~~~
 {: .bash}
 
 ~~~
-jcXXYYYY
+johnsmith
 ~~~
 {: .output}
 
@@ -82,8 +82,8 @@ i.e.,
 the directory that the computer assumes we want to run commands in
 unless we explicitly specify something else.
 Here,
-the computer's response is `/Users/nelle`,
-which is Nelle's **home directory**:
+the computer's response is `/home/johnsmith`,
+which is your's **home directory**:
 
 ~~~
 $ pwd
@@ -91,7 +91,7 @@ $ pwd
 {: .bash}
 
 ~~~
-/Users/nelle
+/home/johnsmith
 ~~~
 {: .output}
 
@@ -221,13 +221,54 @@ information on how to use the commands or programs.
 > is used.
 {: .callout}
 
+
+### Lets get our data files in
+
+To download our data files onto the HPC today, we are going to use two commands
+
+~~~
+[remote]$ wget https://github.com/amandamiotto/INTRO_HPC/raw/gh-pages/files/hpcCarpentry.zip
+--2018-05-23 13:48:34--  https://github.com/amandamiotto/INTRO_HPC/raw/gh-pages/files/hpcCarpentry.zip
+Resolving github.com... 192.30.255.113, 192.30.255.112
+Connecting to github.com|192.30.255.113|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://raw.githubusercontent.com/amandamiotto/INTRO_HPC/gh-pages/files/hpcCarpentry.zip [following]
+--2018-05-23 13:48:35--  https://raw.githubusercontent.com/amandamiotto/INTRO_HPC/gh-pages/files/hpcCarpentry.zip
+Resolving raw.githubusercontent.com... 151.101.0.133, 151.101.64.133, 151.101.128.133, ...
+Connecting to raw.githubusercontent.com|151.101.0.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 14419 (14K) [application/zip]
+Saving to: `hpcCarpentry.zip.1'
+
+100%[======================================>] 14,419      --.-K/s   in 0.001s  
+
+2018-05-23 13:48:35 (13.5 MB/s) - `hpcCarpentry.zip.1' saved [14419/14419]
+
+
+[remote]$ unzip hpcCarpentry.zip
+Archive:  hpcCarpentry.zip
+   creating: hpcCarpentry/
+   creating: hpcCarpentry/plots/
+  inflating: hpcCarpentry/plots/NENE01812A.pdf  
+   creating: hpcCarpentry/results/
+  inflating: hpcCarpentry/results/max.txt  
+   creating: hpcCarpentry/data/
+  inflating: hpcCarpentry/data/NENE01812A.csv  
+  inflating: hpcCarpentry/data/NENE01843A.csv  
+  inflating: hpcCarpentry/stats.py   
+  inflating: test.pbs       
+~~~
+{: .bash}
+
+Now we have some files to explore
+
 > ## Orthogonality
 >
 > The special names `.` and `..` don't belong to `cd`;
 > they are interpreted the same way by every program.
 > For example,
-> if we are in `/Users/nelle/data`,
-> the command `ls ..` will give us a listing of `/Users/nelle`.
+> if we are in `/home/johnsmith/hpcCarpentry`,
+> the command `ls ..` will give us a listing of `/home/johnsmith/`.
 > When the meanings of the parts are the same no matter how they're combined,
 > programmers say they are **orthogonal**:
 > Orthogonal systems tend to be easier for people to learn
@@ -252,7 +293,7 @@ How can you check what happened?  `pwd` gives us the answer!
 {: .bash}
 
 ~~~
-/Users/nelle
+/home/johnsmtih
 ~~~
 {: .output}
 
