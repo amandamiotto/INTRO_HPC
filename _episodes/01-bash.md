@@ -63,10 +63,10 @@ Warning: Permanently added 'awoonga.qriscloud.org.au,137.219.23.90' (RSA) to the
 ~~~~
 {: .bash}
 
-You should now be prompted to input the password which corresponds to your JC number.  Type it in carefully (no characters will appear on the screen), then press ENTER.
+You should now be prompted to input the password which corresponds to your username.  Type it in carefully (no characters will appear on the screen), then press ENTER.
 
 ~~~
-jcXXYYYY@awoonga.qriscloud.org.au's password: 
+johnsmith@awoonga.qriscloud.org.au's password: 
 ~~~
 {: .bash}
 
@@ -154,7 +154,7 @@ We've succesfully (and securely) moved our public key to the HPC, now let's add 
 Once this is done, logout of the HPC.  Then in your computer's Terminal enter the following command:
 
 ~~~
-ssh jcXXYYYY@awoonga.qriscloud.org.au -i ~/.ssh/HPC
+ssh johnsmith@awoonga.qriscloud.org.au -i ~/.ssh/HPC
 ~~~
 {: .bash}
 
@@ -165,7 +165,7 @@ For an even smoother connecting experience, open a text editor, create a blank f
 ~~~
 Host hpc
 	HostName awoonga.qriscloud.org.au
-	User jcXXYYYY
+	User johnsmith
 	Port 8822
 	IdentityFile ~/.ssh/HPC
 ~~~
