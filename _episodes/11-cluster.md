@@ -59,20 +59,49 @@ SSH allows us to connect to UNIX computers remotely, and use them as if they wer
 The general syntax of the connection command follows the format `ssh yourUsername@some.computer.address`
 Let's attempt to connect to the cluster now:
 ```
-ssh yourUsername@graham.computecanada.ca
+ssh yourUsername@awoonga.qriscloud.org.au
 ```
 {: .bash}
 
 ```{.output}
-The authenticity of host 'graham.computecanada.ca (199.241.166.2)' can't be established.
+The authenticity of host 'awoonga.qriscloud.org.au (199.241.166.2)' can't be established.
 ECDSA key fingerprint is SHA256:JRj286Pkqh6aeO5zx1QUkS8un5fpcapmezusceSGhok.
 ECDSA key fingerprint is MD5:99:59:db:b1:3f:18:d0:2c:49:4e:c2:74:86:ac:f7:c6.
 Are you sure you want to continue connecting (yes/no)?  # type "yes"!
 Warning: Permanently added the ECDSA host key for IP address '199.241.166.2' to the list of known hosts.
-yourUsername@graham.computecanada.ca's password:  # no text appears as you enter your password
+yourUsername@awoonga.qriscloud.org.auq's password:  # no text appears as you enter your password
 Last login: Wed Jun 28 16:16:20 2017 from s2.n59.queensu.ca
 
-Welcome to the ComputeCanada/SHARCNET cluster Graham.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  The UQ HPC Facility welcomes authorised clients and partners.
+  Access without authority is strictly prohibited.
+
+  Information on access and use of this facility is available at
+  http://www.rcc.uq.edu.au (general)
+
+  Non UQ User Support Requests should be made to
+    QRIScloud Support Desk             support@qriscloud.org.au
+
+  UQ User Support Requests may be made to
+    UQ RCC Support Desk       336 58350     rcc-support@uq.edu.au
+
+  Support hours are 9-5 weekdays (except Queensland public holidays).
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+  Awoonga batch system is changing to PBSpro.
+  Existing job scripts and commands should be accepted by the default "qsub"
+  (wrapper script) in /usr/local/bin.
+
+
+quotas are implemented for filesystems on awoonga
+  type /usr/local/bin/rquota to see your usage/limits
+
+FileSet        Used(GB) Limit    Files      Limit     
+/home          0        20       53         204800    
+/30days        0        1000     1          3145728   
+/90days        0        400      1          1048576   
+
 ```
 
 If you've connected successfully, you should see a prompt like the one below. 
@@ -80,7 +109,7 @@ This prompt is informative, and lets you grasp certain information at a glance:
 in this case `[yourUsername@computerName workingDirectory]$`.
 
 ```{.output}
-[yourUsername@gra-login1 ~]$
+[yourUsername@awoonga1 ~]$
 ```
 
 ## Where are we? 
@@ -96,7 +125,7 @@ hostname
 ```
 {: .bash}
 ```
-gra-login3
+awoonga1.local
 ```
 {: .output}
 
