@@ -51,25 +51,28 @@ module avail
 ```
 {: .bash}
 ```
------------------------------ MPI-dependent avx2 modules -------------------------------
-   abinit/8.2.2     (chem)      lammps/20170331                    plumed/2.3.0        (chem)
-   abyss/1.9.0      (bio)       mrbayes/3.2.6            (bio)     pnetcdf/1.8.1       (io)
-   boost-mpi/1.60.0 (t)         ncl/6.4.0                          quantumespresso/6.0 (chem)
-   cdo/1.7.2        (geo)       ncview/2.1.7             (vis)     ray/2.3.1           (bio)
+------------------------- /sw/Modules/doc/modulefiles --------------------------
+HOWTO/IntelMPI                      README/AppSupport
+HOWTO/Libraries                     README/CompilerEnvironmentVariables
+HOWTO/OpenMPI                       README/Euramoo_Migration
+HOWTO/PersonalModules               README/HyperWorks
+HOWTO/R-Packages                    README/Modules
+HOWTO/X11                           README/Rolls+Modules
 
+--------------------------- /sw/Modules/DEPRECIATED ----------------------------
+gromacs/5.1.4-intel
 
-[snip]
+------------------------------ /sw/Modules/INDEX -------------------------------
+anaconda/4.2.0                intel_xe/2016.2.181
+anaconda/4.3.1                isolve/v3_0
+ansys/17.0(default)           Java/1.7.0_79
+ansys/17.1                    Java/1.8.0_45
+ansys/18.0                    krona/201712
+ansys/18.1                    libtool/2.4.2-GCC-4.9.2
+ansys_edt/17.1                libtool/2.4.5-GCC-4.9.2
+Autoconf/2.69-GCC-4.9.2       macs/2-2.1.1
+......which p
 
-   t:        Tools for development / Outils de développement
-   vis:      Visualisation software / Logiciels de visualisation
-   chem:     Chemistry libraries/apps / Logiciels de chimie
-   geo:      Geography libraries/apps / Logiciels de géographie
-   phys:     Physics libraries/apps / Logiciels de physique
-   Aliases:  Aliases exist: foo/1.2.3 (1.2) means that "module load foo/1.2" will load foo/1.2.3
-   D:        Default Module
-
-Use "module spider" to find all possible modules.
-Use "module keyword key1 key2 ..." to search for all possible modules matching any of the "keys".
 ```
 {: .output}
 
