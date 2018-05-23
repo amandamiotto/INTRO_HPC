@@ -61,14 +61,13 @@ Once the job completes (note that it takes much less time than expected),
 we can query the scheduler to see how long our job took and what resources were used.
 (Clever users may also notice that the run time is also in the SLURM logfile...)
 
-We can use `sacct` to get statistics about our job.
+We can use `qstat -x -u` to get statistics about our job.
 
-By itself, `sacct -u yourUsername` shows all commands that we ran 
+By itself, `qstat -x -u yourUsername` shows all commands that we ran 
 since midnight on the previous day 
-(we can change this behavior with the `--start-time` option).
 
 ```
-sacct -u yourUsername
+qstat -x -u yourUsername
 ```
 {: .bash}
 ```
@@ -86,11 +85,11 @@ sacct -u yourUsername
 This shows all the jobs we ran recently 
 (note that there are multiple entries per job).
 To get detailed info about a job, 
-we change our `sacct` command slightly
-(`-j` corresponds to job id).
+we change our `qstat` command slightly
+(`-x -H ` corresponds to job id).
 
 ```
-sacct -j 1965 -l
+qstat -x -H 76765 
 ```
 {: .bash}
 
@@ -99,28 +98,10 @@ collected on your job by the scheduler.
 It may be useful to redirect this information to `less` to make it easier to view (use the left and right arrow keys to scroll through fields).
 
 ```
-sacct -j 1965 -l | less
+qstat -x -H 76765 | less
 ```
 {: .bash}
 
-Some interesting fields include the following:
-
-* **Hostname** - Where did your job run?
-* **MaxRSS** - What was the maximum amount of memory used?
-* **Elapsed** - How long did the job take?
-* **State** - What is the job currently doing/what happened to it?
-* **MaxDiskRead** - Amount of data read from disk.
-* **MaxDiskWrite** - Amount of data written to disk.
-
-## Measuring the statistics of currently running tasks
-
-One very useful feature of SLURM is the ability to SSH 
-to a node where a job is running and check how it's doing.
-To do this, check where a job is running with `squeue`,
-then run `ssh nodename`.
-
-However, we can also check on stuff running on the login node right now the same way
-(so it's not necessary to `ssh` to a node for this example).
 
 ### top
 
