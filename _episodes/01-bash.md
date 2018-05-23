@@ -35,7 +35,7 @@ Additional parameters may also be necessary:
 <span style="color:white">blankline</span>
    
 > ## What's my User Name?
-> Your user name is your JC number.  Wherever you see \"jcXXYYYY\", be sure to replace it with your JC number.
+> Your user name is your first name and last name joined up (example: johnsmith).  Wherever you see \"johnsmith\", be sure to replace it with your name.
 {: .callout}
 
 ## Basic SSH Connection
@@ -43,7 +43,7 @@ Additional parameters may also be necessary:
 Open your terminal, and input the following command.
 
 ~~~
-ssh jcXXYYYY@awoonga.qriscloud.org.au -p 8822
+ssh johnsmith@awoonga.qriscloud.org.au -p 8822
 ~~~
 {: .bash}
 
