@@ -165,7 +165,7 @@ For an even smoother connecting experience, open a text editor, create a blank f
 ~~~
 Host hpc
 	HostName awoonga.qriscloud.org.au
-	User johnsmith
+	User 
 	Port 8822
 	IdentityFile ~/.ssh/HPC
 ~~~
