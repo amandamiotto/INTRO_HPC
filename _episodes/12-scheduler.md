@@ -52,12 +52,14 @@ date
 sleep 120
 ```
 
-Please note, you may need to change qris-gu to one of the following:
-qris-gu
-qris-qut
-qris-uq
+Please note, you may need to change qris-gu to your group. You can find out which group you are part of by running the `groups` command.
 
-Or suggested in class.
+~~~
+~> groups
+qris-gu support4 Q0183RW
+
+~~~
+
 
 We will talk about the other parameters set above and their defaults later in this lesson.
 
