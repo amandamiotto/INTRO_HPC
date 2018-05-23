@@ -223,7 +223,7 @@ When you connect to the cluster, your cluster files will appear on the right han
 To connect to the cluster, 
 we'll just need to enter our credentials at the top of the screen:
 
-* Host: `sftp://login.cac.queensu.ca`
+* Host: `sftp://awoonga.qriscloud.org.au`
 * User: Your cluster username
 * Password: Your cluster password
 * Port: (leave blank to use the default port)
