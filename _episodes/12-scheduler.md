@@ -32,6 +32,7 @@ The exact syntax might change, but the concepts remain the same.
 The most basic use of the scheduler is to run a command non-interactively.
 This is also referred to as batch job submission.
 In this case, we need to make a script that incorporates some arguments for PBS such as resources needed and modules to load. An example has been included in the Zip on the setup page. This is just a bash script with some parameters set.
+
 ```
 test.pbs
 ```
@@ -50,7 +51,15 @@ echo 'The date is :'
 date
 sleep 120
 ```
-We will talk about the parameters set above and their defaults later in this lesson.
+
+Please note, you may need to change qris-gu to one of the following:
+qris-gu
+qris-qut
+qris-uq
+
+Or suggested in class.
+
+We will talk about the other parameters set above and their defaults later in this lesson.
 
 As this is just a bash script, you can run it as any bash script on the head node. Please note- its very very important not to run any large or resource heavy script on the head node, as every user relies on this head node.
 
