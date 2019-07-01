@@ -252,7 +252,7 @@ PBS sets multiple environment variables at submission time. The following PBS va
 
 | Variable Name |  Description |
 |---|---|
-| PBS_ARRAYID|  Array ID numbers for jobs submitted with the -t flag. For example a job submitted with #PBS -t 1-8 will run eight identical copies of the shell script. The value of the PBS_ARRAYID will be an integer between 1 and 8.|
+| PBS_ARRAY_INDEX|  Array ID numbers for jobs submitted with the -J flag. For example a job submitted with #PBS -J 1-8 will run eight identical copies of the shell script. The value of the PBS_ARRAY_INDEX will be an integer between 1 and 8.|
 | PBS_ENVIRONMENT|  Set to PBS_BATCH to indicate that the job is a batch job; otherwise, set to PBS_INTERACTIVE to indicate that the job is a PBS interactive job.|
 | PBS_JOBID|  Full jobid assigned to this job. Often used to uniquely name output files for this job, for example: mpirun - np 16 ./a.out >output.${PBS_JOBID}|
 | PBS_JOBNAME|  Name of the job. This can be set using the -N option in the PBS script (or from the command line). The default job name is the name of the PBS script.|
