@@ -48,7 +48,7 @@ Chances are, you've run into one of these situations before.
 Fortunately, high-performance computing installations exist to solve these types of problems.
 
 With all of this in mind, let's connect to a cluster (if you haven't done so already!). 
-For these examples, we will connect to Graham - a high-performance cluster located at the University of Waterloo.
+For these examples, we will connect to Awoonga - a high-performance cluster located at the University of Queensland.
 Although it's unlikely that every system will be exactly like Graham, 
 it's a very good example of what you can expect from a supercomputing installation.
 To connect to our example computer, we will use SSH. 
